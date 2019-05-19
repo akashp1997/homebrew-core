@@ -3,7 +3,7 @@ class Flann < Formula
   homepage "https://www.cs.ubc.ca/research/flann/"
   url "https://github.com/mariusmuja/flann/archive/1.9.1.tar.gz"
   sha256 "b23b5f4e71139faa3bcb39e6bbcc76967fbaf308c4ee9d4f5bfbeceaa76cc5d3"
-  revision 7
+  revision 8
 
   bottle do
     cellar :any
@@ -28,6 +28,12 @@ class Flann < Formula
   resource("dataset.hdf5") do
     url "https://www.cs.ubc.ca/research/flann/uploads/FLANN/datasets/dataset.hdf5"
     sha256 "64ae599f3182a44806f611fdb3c77f837705fcaef96321fb613190a6eabb4860"
+  end
+
+  # This patch is introduced to incorporate C++17 standards
+  patch do
+    url "https://github.com/mariusmuja/flann/compare/06a4951...be80cef.diff"
+    sha256 "652b2758a1cb142078d089653b3f65ef413cf9446c9162435eb4ecf13d0f63c1"
   end
 
   def install
